@@ -12,10 +12,10 @@
         <nav id="navbar" class="navbar">
                 <ul class="navlist">
                     <li class="navitem">
-                        <a href="#heading">GetaJob.com</a>
+                        <a href="index.php">GetaJob.com</a>
                     </li>
                     <li class="navitem">
-                        <a href="#heading">Home</a>
+                        <a href="index.php">Home</a>
                     </li>
                     <li class="navitem">
                         <a href="login.php">Login</a>
