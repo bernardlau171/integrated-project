@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
     <html>
         <head>
@@ -17,13 +21,16 @@
                     <li class="navitem">
                         <a href="index.php">Home</a>
                     </li>
-                    <li class="navitem">
-                        <a href="login.php">Login</a>
-                    </li>
-                    <li class="navitem">
-                        <button class="btn-primary"><a href="signup.php">Sign up</a></button>
-                    </li>
-
+                    <?php
+                    if(isset($_SESSION["useruid"])){
+                        echo "<li class='navitem'><a href='profile.php'>Your profile</a></li>";
+                        echo "<li class='navitem'><a href='inc/logout.inc.php'>Log out</a></li>";
+                    }
+                    else{
+                        echo "<li class='navitem'><a href='login.php'>Login</a></li>";
+                        echo "<li class='navitem'><button class='btn-primary'><a href='signup.php'>Sign up</a></button></li>";
+                    }
+                    ?>
                 </ul>
             </nav>
             </div>
