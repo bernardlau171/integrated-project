@@ -21,10 +21,7 @@
                         <a href="login.php">Login</a>
                     </li>
                     <li class="navitem">
-                        <a href="signup.php">Sign up</a>
-                    </li>
-                    <li class="navitem">
-                        <button class="btn-primary">For Employers</button>
+                        <button class="btn-primary"><a href="signup.php">Sign up</a></button>
                     </li>
 
                 </ul>
