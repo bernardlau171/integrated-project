@@ -53,6 +53,7 @@ function createUser($conn,$nickname,$email,$type,$username,$pwd){
     exit();
 }
 
+
 function loginuser($conn,$username,$pwd){
     $uidExists = uidExists($conn, $username);
 
@@ -62,6 +63,7 @@ function loginuser($conn,$username,$pwd){
     }
 
     $pwdHashed = $uidExists["userPwd"];
+    $usertype = $uidExists["userType"];
     $checkPwd = password_verify($pwd, $pwdHashed);
 
     if($checkPwd === false){
@@ -72,7 +74,14 @@ function loginuser($conn,$username,$pwd){
         session_start();
         $_SESSION["userid"] = $uidExists["usersId"];
         $_SESSION["useruid"] = $uidExists["userUid"];
-        header("location: ../index.php");
+        if($usertype == "company"){
+            header('Location: ../companyindex.php');
+            exit();
+        }
+        else if($usertypes['usertype'] == "user"){
+        header('Location: ../index.php');
         exit();
+    }
+    
     }
 }

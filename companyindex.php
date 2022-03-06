@@ -6,10 +6,7 @@ include_once 'header.php';
     <section>
     <?php
 if(isset($_SESSION["useruid"])){
-    echo "<h1>Welcome, " . $_SESSION["useruid"] . "</h1>";
-}
-else{
-    echo"<h1>Welcome!</h1>";
+    echo "<h1>Welcome to company page, " . $_SESSION["useruid"] . "</h1>";
 }
 ?>
         
@@ -19,7 +16,3 @@ else{
 </body>
 
 </html>
-
-
-
-
