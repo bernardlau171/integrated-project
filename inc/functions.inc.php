@@ -57,7 +57,7 @@ function createUser($conn,$nickname,$email,$type,$username,$pwd){
 function loginuser($conn,$username,$pwd){
     $uidExists = uidExists($conn, $username);
 
-    if($uidexists === false){
+    if($uidExists === false){
         header("location: ../login.php?error=loginfailed");
         exit();
     }
@@ -78,10 +78,9 @@ function loginuser($conn,$username,$pwd){
             header('Location: ../companyindex.php');
             exit();
         }
-        else if($usertypes['usertype'] == "user"){
-        header('Location: ../index.php');
-        exit();
-    }
+        else if($usertype == "individual"){
+            header('Location: ../index.php');
+            exit();}
     
     }
 }
