@@ -122,4 +122,15 @@ header{
     max-width: 200; 
 }
 
+.parallax-1{
+    height: 100%;
+    position: relative;
+    background-attachment:scroll;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(assets/background.jpg);
+    padding: 5rem;
+    
+}
 

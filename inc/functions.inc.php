@@ -88,7 +88,7 @@ function loginuser($conn,$username,$pwd){
 function upload_profile($path, $file){
     $targetDir = $path;
     $default = "default.png";
-    
+
     $filename = basename($file['name']);
     $targetFilePath = $targetDir . $filename;
     $fileType = pathinfo($targetFilePath, PATHINFO_EXTENSION);
@@ -104,3 +104,19 @@ function upload_profile($path, $file){
     }
     return $path . $default;
 }
+
+function createJob($conn,$title,$salary,$requirement,$duty,$uid){
+    $sql = "INSERT INTO job (jobTitle, salary, jobRequirement, jobDuty, userUid) VALUES (?,?,?,?,?);";
+    $stmt = mysqli_stmt_init($conn);
+    if(!mysqli_stmt_prepare($stmt, $sql)){
+        header("location: ../companyindex.php?error=stmtfailed");
+        exit();
+    }
+
+    mysqli_stmt_bind_param($stmt,"sssss",$title,$salary,$requirement,$duty,$uid);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+    header("location: ../companyindex.php?error=none");
+    exit();
+}
+
