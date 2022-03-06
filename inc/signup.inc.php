@@ -7,9 +7,13 @@ if(isset($_POST["submit"])){
     $username = $_POST["uid"];
     $pwd = $_POST["pwd"];
     $repeatpwd = $_POST["repeatpwd"];
+    $files = $_FILES["user-img"];
+    
 
     require_once 'dbh.inc.php';
     require_once 'functions.inc.php';
+
+    $img = upload_profile('./uploads/', $files);
 
     if(pwdMatch($pwd, $repeatpwd)!==false){
         header("location: ../signup.php?error=passwordmismatch");
@@ -20,7 +24,7 @@ if(isset($_POST["submit"])){
         exit();
     }
 
-    createUser($conn,$nickname,$email,$type,$username,$pwd);
+    createUser($conn,$nickname,$email,$type,$username,$pwd,$img);
 }
 else{
     header("location: ../signup.php");

@@ -4,6 +4,7 @@ include_once 'header.php';
 <div class="space"></div>
     <section class="signupform">
             <h2>Signup</h2>
+           
             <form action="inc/signup.inc.php" method="post">
                 <div class="signup-item">
                     <label for="nickname">Nickname: </label>
@@ -31,6 +32,10 @@ include_once 'header.php';
                 <div class="signup-item">
                     <label for="repeatpwd">Confirm password: </label>
                     <input type="password" name="repeatpwd" placeholder="re-enter password" required>
+                </div>
+                <div class="signup-item">
+                    <label for="user-img">Please upload a profile image</label>
+                    <input type="file" name="user-img">
                 </div>
                 <button class="btn-reg" type="reset" name="reset">Reset</button>
                 <button class="btn-reg" type="submit" name="submit">Sign Up</button>
