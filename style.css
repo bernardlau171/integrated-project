@@ -105,7 +105,7 @@ header{
     max-width: 200; 
 }
 
-.parallax-1, .parallax-2, .parallax-3{
+.parallax-1, .parallax-2, .parallax-3, .parallax-4{
     height: 100%;
     position: relative;
     background-attachment:scroll;
@@ -132,6 +132,10 @@ header{
     
 }
 
+.parallax-4{
+    background-image: url(assets/bg4.jpg);
+}
+
 .container{
     display: flex;
     justify-content: center;
@@ -143,7 +147,7 @@ header{
     width: 200px;
     height: 380px;
     margin: 30px;
-    padding: 30px;
+    padding: 20px;
     border-radius: 15px;
 
 }
@@ -188,4 +192,8 @@ header{
     text-decoration: none;
     color: white;
     transition: all 200ms ease-in;
+}
+
+.description{
+    
 }

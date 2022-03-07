@@ -17,10 +17,10 @@ include_once 'header.php';
                     <scetion class="container">
                         <?php if(isset($_SESSION["useruid"])){ foreach($query as $q){?>
                             <div class="card">
-                    <h2><?php echo $q['jobTitle'] ?></h2>
-                    <p>Salary: <?php echo $q['salary']?></p>
-                    <p><?php echo substr($q['jobDuty'], 0, 50)?>...</p>
-                    <a href="jobdetails.view.php?id=<?php echo $q['Id'] ?>"> View</a>
+                                <h2><?php echo $q['jobTitle'] ?></h2>
+                                <p>Salary: <?php echo $q['salary']?></p>
+                                <p><?php echo substr($q['jobDuty'], 0, 50)?>...</p>
+                                <a href="jobdetails.php?id=<?php echo $q['Id'] ?>"> View</a>
                 </div><?php }} ?>
             </section>
             <div class="space"></div>

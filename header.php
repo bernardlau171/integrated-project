@@ -21,13 +21,10 @@ include 'inc/dbh.inc.php';
                     <li class="navitem">
                         <a href="index.php">GetaJob.com</a>
                     </li>
-                    <li class="navitem">
-                        <a href="index.php">Home</a>
-                    </li>
                     <?php
                     if(isset($_SESSION["useruid"])){
                             $uid = $_SESSION["useruid"];
-                            $sql = "SELECT userType FROM users where userUid = '$uid'";
+                            $sql = "SELECT userType FROM users where userUid = '$uid';";
                             $query = mysqli_query($conn, $sql);
                             if($query == "company"){
                                 echo "<li class='navitem'><a href='index-company.php'>Home</a></li>";
