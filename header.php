@@ -1,5 +1,6 @@
 <?php
 session_start();
+include 'inc/dbh.inc.php';
 ?>
 
 <!DOCTYPE html>
@@ -25,6 +26,15 @@ session_start();
                     </li>
                     <?php
                     if(isset($_SESSION["useruid"])){
+                            $uid = $_SESSION["useruid"];
+                            $sql = "SELECT userType FROM users where userUid = '$uid'";
+                            $query = mysqli_query($conn, $sql);
+                            if($query == "company"){
+                                echo "<li class='navitem'><a href='companyindex.php'>Home</a></li>";
+                            }
+                            else if ($query == "individual"){
+                                echo "<li class='navitem'><a href='index.php'>Home</a></li>";
+                            }
                         echo "<li class='navitem'><a href='profile.php'>Your profile</a></li>";
                         echo "<li class='navitem'><a href='inc/logout.inc.php'>Log out</a></li>";
                     }

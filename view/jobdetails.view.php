@@ -1,6 +1,5 @@
 <?php
 include_once 'header.php';
-include 'inc/dbh.inc.php';
 ?>
 <body>
 

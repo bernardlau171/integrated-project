@@ -12,7 +12,8 @@
 body{
     margin: 0;
     padding: 0;
-    background-color: whitesmoke;
+    
+    background-image: url(/assets/bg1);
     
 }
 
@@ -50,12 +51,14 @@ header{
 .navlist{
     background: #24252A;
     padding: 1rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
     display: flex;
     justify-content: flex-end;
     align-items: center;
 }
 .navitem{
-    font-size: 18px;
+    font-size: 20px;
     list-style: none;
     margin-right: 2rem;
 }
@@ -122,48 +125,92 @@ header{
     max-width: 200; 
 }
 
-.parallax-1{
+.parallax-1, .parallax-2, .parallax-3{
     height: 100%;
     position: relative;
     background-attachment:scroll;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    background-image: url(assets/background.jpg);
+    
     padding: 5rem;
+    
+}
+
+.parallax-1{
+    background-image: url(assets/bg1.jpg);
+
+}
+
+.parallax-2{
+    background-image: url(assets/bg2.jpg);
+    
+}
+
+.parallax-3{
+    background-image: url(assets/bg3.jpg);
     
 }
 
 .container{
     display: flex;
     justify-content: center;
-    align-items: center;
-    max-width: 1200px;
-    flex-wrap: wrap;
-    padding: 40px;
+
 }
 
-.container .card{
-    position: relative;
-    min-width: 320px;
-    height: 440px;
-    border-radius: 15px;
-    margin: 30px;
-}
-
-.container .card .box{
-    position:absolute;
-    top:20px;
-    left: 20px;
-    right: 20px;
-    background: #ebf5fc;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    border-radius: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.container .card .box .content{
+.card{
+    background: grey;
+    width: 200px;
+    height: 380px;
+    margin: 10px;
     padding: 20px;
-    text-align: center;
+    border-radius: 15px;
+
+}
+
+.card a{
+    background-color: black;
+    color: white;
+    display: block;
+}
+
+.card a{
+    background-color: green;
+    color: white;
+    padding: 15px 20px;
+    display: block;
+}
+
+
+.intro {
+    margin: auto;
+    width: 100%;
+    border: none;
+    padding-top: 20px;
+}
+
+.titlebox {
+    margin: 50px;
+    width: 500px;
+    height: 500px;
+    padding: 50px;
+    background: rgba(255, 255, 255, 0.7);
+    margin: auto;
+    margin-top: 5px;
+    color: black;
+    
+}
+
+.center {
+    margin: auto;
+    width: 50%;
+    border: none;
+    padding: 50px;
+    
+}
+
+.center a{
+    text-decoration: none;
+    color: white;
+    transition: all 200ms ease-in;
 }

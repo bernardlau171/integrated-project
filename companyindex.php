@@ -1,32 +1,33 @@
 <?php
 include_once 'header.php';
-include 'inc/dbh.inc.php'
 ?>
 
 <div class="wrapper">
+<div class="parallax-1">
     <section>
-<?php
-if(isset($_SESSION["useruid"])){
-    $uid = $_SESSION["useruid"];
-    $sql = "SELECT * FROM job where useruid = '$uid'";
-    $query = mysqli_query($conn, $sql);
-    echo "<h1>Welcome to company page, ".$uid."</h1>";
-    echo " <div class='text-center'><a href='create.php' class='btn btn-outline-dark'>+ Create a new job post</a></div>";
-    foreach($query as $q){
-        echo "<div class='container'><div class='box'><div class='content'>";
-        echo"<h2>". $q['jobTitle'] ."</h2>";
-        echo "<h3>". $q['salary'] ."</h3>";
-        echo"<p>". substr($q['jobDuty'], 0, 50) ."...</p>";
-        echo"<a href='jobdetails.view.php?id=". $q['Id'] . "' class='btn btn-light'>Read More</a>";
-        echo"</div></div></div>";}
-    }
-?>
-
-<div class></div>
+        <?php
+        if(isset($_SESSION["useruid"])){
+            $uid = $_SESSION["useruid"];
+            $sql = "SELECT * FROM job where useruid = '$uid'";
+            $query = mysqli_query($conn, $sql);
+            echo "<h1>Welcome to company page, ".$uid."</h1><br>";
+            echo " <div class='text-center'><a href='create.php'>+ Create a new job post</a><br><br>Your listed jobs</div><div class='space'></div>";
+        }?>
+        <scetion class="container">
+            <?php foreach($query as $q){?>
+                <div class="card">
+                    <h2><?php echo $q['jobTitle'] ?></h2>
+                    <p><br>Salary: <?php echo $q['salary']?></p>
+                    <p><br><?php echo substr($q['jobDuty'], 0, 50)?>...</p>
+                    <a href="jobdetails.view.php?id=<?php echo $q['Id'] ?>"> View</a>
+                </div><?php } ?>
+            </section>
+        </div>
         
     </section>
+    <div class="space"></div>    
 </div>
-
+</div>
 </body>
 
 </html>

@@ -1,7 +1,8 @@
 <?php
 include_once 'header.php';
 ?>
-<div class="space"></div>
+<div class="parallax-2">
+
     <section class="signupform">
             <h2>Signup</h2>
            
@@ -58,6 +59,7 @@ include_once 'header.php';
             }
         ?>
     </section>
+    </div>
 
     </body>
 </html>
