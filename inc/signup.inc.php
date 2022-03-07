@@ -7,13 +7,16 @@ if(isset($_POST["submit"])){
     $username = $_POST["uid"];
     $pwd = $_POST["pwd"];
     $repeatpwd = $_POST["repeatpwd"];
-    $files = $_FILES["user-img"];
     
+    $profileImageName = time() . '-' . $_FILES["profileimg"]["name"];
+    $target_dir = "../uploads/";
+    $target_file = $target_dir . basename($profileImageName);
+    
+
+    move_uploaded_file($_FILES["profileimg"]["tmp_name"], $target_file);
 
     require_once 'dbh.inc.php';
     require_once 'functions.inc.php';
-
-    $img = upload_profile('./uploads/', $files);
 
     if(pwdMatch($pwd, $repeatpwd)!==false){
         header("location: ../signup.php?error=passwordmismatch");
@@ -23,8 +26,7 @@ if(isset($_POST["submit"])){
         header("location: ../signup.php?error=usernametaken");
         exit();
     }
-
-    createUser($conn,$nickname,$email,$type,$username,$pwd,$img);
+    createUser($conn,$nickname,$email,$type,$username,$pwd,$target_file);
 }
 else{
     header("location: ../signup.php");

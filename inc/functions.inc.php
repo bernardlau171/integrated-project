@@ -37,7 +37,7 @@ function uidExists($conn, $username){
 
 
 
-function createUser($conn,$nickname,$email,$type,$username,$pwd,$img){
+function createUser($conn,$nickname,$email,$type,$username,$pwd,$target_file){
     $sql = "INSERT INTO users (userName, userEmail, userType, userUid, userPwd, userImg) VALUES (?,?,?,?,?,?);";
     $stmt = mysqli_stmt_init($conn);
     if(!mysqli_stmt_prepare($stmt, $sql)){
@@ -46,7 +46,7 @@ function createUser($conn,$nickname,$email,$type,$username,$pwd,$img){
     }
 
     $hashedPwd = password_hash($pwd, PASSWORD_DEFAULT);
-    mysqli_stmt_bind_param($stmt,"ssssss",$nickname, $email, $type, $username, $hashedPwd,$img);
+    mysqli_stmt_bind_param($stmt,"ssssss",$nickname, $email, $type, $username, $hashedPwd, $target_file);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
     header("location: ../signup.php?error=none");
@@ -85,25 +85,7 @@ function loginuser($conn,$username,$pwd){
     }
 }
 
-function upload_profile($path, $file){
-    $targetDir = $path;
-    $default = "default.png";
 
-    $filename = basename($file['name']);
-    $targetFilePath = $targetDir . $filename;
-    $fileType = pathinfo($targetFilePath, PATHINFO_EXTENSION);
-
-    If(!empty($filename)){
-        $allowType = array('jpg', 'png', 'jpeg', 'gif', 'pdf');
-        if(in_array($fileType, $allowType)){
-            if(move_uploaded_file($file['tmp_name'], $targetFilePath)){
-                return $targetFilePath;
-            }
-        }
-        
-    }
-    return $path . $default;
-}
 
 function createJob($conn,$title,$salary,$requirement,$duty,$uid){
     $sql = "INSERT INTO job (jobTitle, salary, jobRequirement, jobDuty, userUid) VALUES (?,?,?,?,?);";

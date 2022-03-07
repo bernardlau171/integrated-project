@@ -6,7 +6,7 @@ include_once 'header.php';
     <section class="signupform">
             <h2>Signup</h2>
            
-            <form action="inc/signup.inc.php" method="post">
+            <form action="inc/signup.inc.php" method="post" enctype="multipart/form-data">
                 <div class="signup-item">
                     <label for="nickname">Nickname: </label>
                     <input type="text" name="nickname" placeholder="Nickname" required>
@@ -35,9 +35,10 @@ include_once 'header.php';
                     <input type="password" name="repeatpwd" placeholder="re-enter password" required>
                 </div>
                 <div class="signup-item">
-                    <label for="user-img">Please upload a profile image</label>
-                    <input type="file" name="user-img">
+                    <label for="image">Please upload a profile image:</label>
+                    <input type="file" name="profileimg">
                 </div>
+
                 <button class="btn-reg" type="reset" name="reset">Reset</button>
                 <button class="btn-reg" type="submit" name="submit">Sign Up</button>
             </form>
