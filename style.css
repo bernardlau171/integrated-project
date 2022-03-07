@@ -134,3 +134,36 @@ header{
     
 }
 
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px;
+    flex-wrap: wrap;
+    padding: 40px;
+}
+
+.container .card{
+    position: relative;
+    min-width: 320px;
+    height: 440px;
+    border-radius: 15px;
+    margin: 30px;
+}
+
+.container .card .box{
+    position:absolute;
+    top:20px;
+    left: 20px;
+    right: 20px;
+    background: #ebf5fc;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container .card .box .content{
+    padding: 20px;
+    text-align: center;
+}
