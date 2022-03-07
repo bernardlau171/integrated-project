@@ -75,11 +75,10 @@ function loginuser($conn,$username,$pwd){
         $_SESSION["userid"] = $uidExists["usersId"];
         $_SESSION["useruid"] = $uidExists["userUid"];
         if($usertype == "company"){
-            header('Location: ../companyindex.php');
+            header('Location: ../index-company.php');
             exit();
-        }
-        else if($usertype == "user"){
-            header('Location: ../index.php');
+        }else{
+            header('Location: ../index-individual.php');
             exit();}
     
     }
