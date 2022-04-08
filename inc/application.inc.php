@@ -1,9 +1,10 @@
 <?php
 
-if(isset($_POST["create"])){
+if(isset($_POST["apply"])){
     $message = $_POST["message"];
     $job = $_POST["jobid"];
-    $sender = $_POST["senderuid"];
+    $sender = $_POST["sendername"];
+    $sendermail = $_POST["email"];
 
     
 
@@ -11,9 +12,9 @@ if(isset($_POST["create"])){
     require_once 'functions.inc.php';
 
 
-    createJob($conn,$message,$job,$sender);
+    createApplication($conn,$message,$job,$sender,$sendermail);
 }
 else{
-    header("location: ../create.php");
+    header("location: ../application.php");
     exit();
 }

@@ -101,18 +101,18 @@ function createJob($conn,$title,$salary,$requirement,$duty,$uid){
     exit();
 }
 
-function createApplcation($conn,$title,$salary,$requirement,$duty,$uid){
-    $sql = "INSERT INTO application (jobTitle, salary, jobRequirement, jobDuty, userUid) VALUES (?,?,?,?,?);";
+function createApplication($conn,$message,$job,$sender,$sendermail){
+    $sql = "INSERT INTO applicationmsg (applymessage, jobId, senderName, senderEmail) VALUES (?,?,?,?);";
     $stmt = mysqli_stmt_init($conn);
     if(!mysqli_stmt_prepare($stmt, $sql)){
-        header("location: ../companyindex.php?error=stmtfailed");
+        header("location: ../application.php?error=stmtfailed");
         exit();
     }
 
-    mysqli_stmt_bind_param($stmt,"sssss",$title,$salary,$requirement,$duty,$uid);
+    mysqli_stmt_bind_param($stmt,"ssss",$message,$job,$sender,$sendermail);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
-    header("location: ../companyindex.php?error=none");
+    header("location: ../application.php?error=none");
     exit();
 }
 
