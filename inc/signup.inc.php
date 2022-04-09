@@ -9,11 +9,12 @@ if(isset($_POST["submit"])){
     $repeatpwd = $_POST["repeatpwd"];
     
     $profileImageName = time() . '-' . $_FILES["profileimg"]["name"];
-    $target_dir = "../uploads/";
+    $target_dir = "./uploads/";
+    $move_file = "../uploads/" . basename($profileImageName);
     $target_file = $target_dir . basename($profileImageName);
     
 
-    move_uploaded_file($_FILES["profileimg"]["tmp_name"], $target_file);
+    move_uploaded_file($_FILES["profileimg"]["tmp_name"], $move_file);
 
     require_once 'dbh.inc.php';
     require_once 'functions.inc.php';
