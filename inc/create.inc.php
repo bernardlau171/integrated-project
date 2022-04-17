@@ -1,11 +1,11 @@
 <?php
 
 if(isset($_POST["create"])){
-    $title = $_POST["jobtitle"];
-    $salary = $_POST["salary"];
-    $requirement = $_POST["jobrequirement"];
-    $duty = $_POST["jobduty"];
-    $uid = $_POST["useruid"];
+    $title = mysqli_real_escape_string($conn, $_POST["jobtitle"]);
+    $salary = mysqli_real_escape_string($conn, $_POST["salary"]);
+    $requirement = mysqli_real_escape_string($conn, $_POST["jobrequirement"]);
+    $duty = mysqli_real_escape_string($conn, $_POST["jobduty"]);
+    $uid = mysqli_real_escape_string($conn, $_POST["useruid"]);
 
     
 

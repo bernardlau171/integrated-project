@@ -1,8 +1,8 @@
 <?php
 
 if(isset($_POST["submit"])){
-    $username = $_POST["uid"];
-    $pwd = $_POST["pwd"];
+    $username = mysqli_real_escape_string($conn,$_POST["uid"]);
+    $pwd = mysqli_real_escape_string($conn,$_POST["pwd"]);
 
     require_once 'dbh.inc.php';
     require_once 'functions.inc.php';
