@@ -7,6 +7,10 @@ if(isset($_POST["create"])){
     $duty = mysqli_real_escape_string($conn, $_POST["jobduty"]);
     $uid = mysqli_real_escape_string($conn, $_POST["useruid"]);
 
+    $title = htmlspecialchars($title);
+    $salary = htmlspecialchars($salary);
+    $requirement = htmlspecialchars($requirement);
+    $duty = htmlspecialchars($duty);
     
 
     require_once 'dbh.inc.php';

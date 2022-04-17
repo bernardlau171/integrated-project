@@ -1,12 +1,19 @@
 <?php
 
 if(isset($_POST["submit"])){
+
     $nickname = mysqli_real_escape_string($conn,$_POST["nickname"]);
     $email = mysqli_real_escape_string($conn,$_POST["email"]);
     $type = mysqli_real_escape_string($conn,$_POST["type"]);
     $username = mysqli_real_escape_string($conn,$_POST["uid"]);
     $pwd = mysqli_real_escape_string($conn,$_POST["pwd"]);
     $repeatpwd = mysqli_real_escape_string($conn,$_POST["repeatpwd"]);
+
+    $nickname = htmlspecialchars($nickname);
+    $email = htmlspecialchars($email);
+    $username = htmlspecialchars($username);
+    $pwd = htmlspecialchars($pwd);
+    $repeatpwd = htmlspecialchars($repeatpwd);
     
     $profileImageName = time() . '-' . $_FILES["profileimg"]["name"];
     $target_dir = "./uploads/";
