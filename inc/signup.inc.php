@@ -2,12 +2,12 @@
 
 if(isset($_POST["submit"])){
 
-    $nickname = mysqli_real_escape_string($conn,$_POST["nickname"]);
-    $email = mysqli_real_escape_string($conn,$_POST["email"]);
-    $type = mysqli_real_escape_string($conn,$_POST["type"]);
-    $username = mysqli_real_escape_string($conn,$_POST["uid"]);
-    $pwd = mysqli_real_escape_string($conn,$_POST["pwd"]);
-    $repeatpwd = mysqli_real_escape_string($conn,$_POST["repeatpwd"]);
+    $nickname = $_POST["nickname"];
+    $email = $_POST["email"];
+    $type = $_POST["type"];
+    $username = $_POST["uid"];
+    $pwd = $_POST["pwd"];
+    $repeatpwd = $_POST["repeatpwd"];
 
     $nickname = htmlspecialchars($nickname);
     $email = htmlspecialchars($email);

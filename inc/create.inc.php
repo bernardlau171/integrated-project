@@ -1,7 +1,5 @@
 <?php
 
-require_once 'dbh.inc.php';
-
 if(isset($_POST["create"])){
     $title = $_POST["jobtitle"];
     $salary = $_POST["salary"];
@@ -16,6 +14,7 @@ if(isset($_POST["create"])){
     
 
     require_once 'functions.inc.php';
+    require_once 'dbh.inc.php';
 
 
     createJob($conn,$title,$salary,$requirement,$duty,$uid);
