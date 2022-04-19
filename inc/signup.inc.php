@@ -19,7 +19,7 @@ if(isset($_POST["submit"])){
     $target_dir = "./uploads/";
     $move_file = "../uploads/" . basename($profileImageName);
     $target_file = $target_dir . basename($profileImageName);
-    
+
 
     move_uploaded_file($_FILES["profileimg"]["tmp_name"], $move_file);
 

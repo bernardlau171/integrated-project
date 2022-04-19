@@ -1,11 +1,13 @@
 <?php
 
+require_once 'dbh.inc.php';
+
 if(isset($_POST["create"])){
-    $title = mysqli_real_escape_string($conn, $_POST["jobtitle"]);
-    $salary = mysqli_real_escape_string($conn, $_POST["salary"]);
-    $requirement = mysqli_real_escape_string($conn, $_POST["jobrequirement"]);
-    $duty = mysqli_real_escape_string($conn, $_POST["jobduty"]);
-    $uid = mysqli_real_escape_string($conn, $_POST["useruid"]);
+    $title = $_POST["jobtitle"];
+    $salary = $_POST["salary"];
+    $requirement = $_POST["jobrequirement"];
+    $duty = $_POST["jobduty"];
+    $uid = $_POST["useruid"];
 
     $title = htmlspecialchars($title);
     $salary = htmlspecialchars($salary);
@@ -13,7 +15,6 @@ if(isset($_POST["create"])){
     $duty = htmlspecialchars($duty);
     
 
-    require_once 'dbh.inc.php';
     require_once 'functions.inc.php';
 
 
