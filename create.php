@@ -30,3 +30,14 @@ include_once 'header.php';
                 <button type="submit" name="create">Create</button>
             </form>
             <div class="space"></div>
+
+            <?php
+                if(isset($_GET["error"])){
+                if($_GET["error"] == "stmtfailed"){
+                    echo "<p>Something went wrong, try again -_-</p>";
+                }
+                else if($_GET["error"] == "none"){
+                    echo "<p>Success, job created!</p>";
+                }
+            }
+        ?>

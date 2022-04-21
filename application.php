@@ -13,11 +13,11 @@ include_once 'header.php';
                     <input type="text" name="sendername" placeholder="Your full name" required>
                 </div>
                 <div class="signup-item">
-                    <label for="email">Text: </label>
+                    <label for="email">Email: </label>
                     <input type="email" name="email" placeholder="E-mail" required>
                 </div>
                 <div class="signup-item">
-                    <label for="message">Text: </label>
+                    <label for="message">Message: </label>
                     <input type="text" name="message" placeholder="Something abot youself....." required>
                 </div>
                 <?php 
@@ -25,6 +25,16 @@ include_once 'header.php';
                     echo "<input type='hidden' name='jobid' value='". $_SESSION["id"] ."'";}
                     ?>
                     <button type="reset" name="reset">Reset</button>
-                    <button type="submit" name="create">Apply</button>
+                    <button type="submit" name="apply">Apply</button>
             </form>
             <div class="space"></div>
+            <?php
+                if(isset($_GET["error"])){
+                if($_GET["error"] == "stmtfailed"){
+                    echo "<p>Something went wrong, try again -_-</p>";
+                }
+                else if($_GET["error"] == "none"){
+                    echo "<p>Success, application submitted!</p>";
+                }
+            }
+        ?>

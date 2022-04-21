@@ -24,7 +24,7 @@ include 'inc/dbh.inc.php';
                     <?php
                     if(isset($_SESSION["useruid"])){
                             $uid = $_SESSION["useruid"];
-                            $sql = "SELECT userType FROM users where userUid = '$uid';";
+                            $sql = "SELECT userType FROM users where userUid = '$uid'";
                             $query = mysqli_query($conn, $sql);
                             if($query == "company"){
                                 echo "<li class='navitem'><a href='index-company.php'>Home</a></li>";
@@ -36,6 +36,7 @@ include 'inc/dbh.inc.php';
                             echo "<li class='navitem'><a href='inc/logout.inc.php'>Log out</a></li>";
                     }
                     else{
+                        echo "<li class='navitem'><a href='index.php'>Home</a></li>";
                         echo "<li class='navitem'><a href='login.php'>Login</a></li>";
                         echo "<li class='navitem'><button class='btn-primary'><a href='signup.php'>Sign up</a></button></li>";
                     }
