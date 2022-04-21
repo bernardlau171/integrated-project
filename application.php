@@ -6,7 +6,7 @@ include_once 'header.php';
     <section class="signupform">
             <h2>Application</h2>
            
-            <form action="inc/application.inc.php" method="post">
+            <form action="inc/application.inc.php" method="post" enctype="multipart/form-data">
 
                 <div class="signup-item">
                     <label for="sendername">Fullname: </label>

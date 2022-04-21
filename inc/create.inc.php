@@ -20,6 +20,6 @@ if(isset($_POST["create"])){
     createJob($conn,$title,$salary,$requirement,$duty,$uid);
 }
 else{
-    header("location: ../create.php");
+    header("location: ../index-company.php");
     exit();
 }

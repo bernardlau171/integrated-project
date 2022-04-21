@@ -6,6 +6,10 @@ if(isset($_POST["apply"])){
     $sender = $_POST["sendername"];
     $sendermail = $_POST["email"];
 
+    $message = htmlspecialchars($message);
+    $job = htmlspecialchars($job);
+    $sender = htmlspecialchars($sender);
+    $sendermail = htmlspecialchars($sendermail);
     
 
     require_once 'dbh.inc.php';
